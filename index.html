@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>冷凍店到店結帳系統</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; max-width: 500px; margin: auto; line-height: 1.6; background-color: #f9f9f9;}
+        .container { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        h2 { border-bottom: 2px solid #333; padding-bottom: 10px; font-size: 1.2rem; }
+        label { font-weight: bold; display: block; margin-top: 15px; }
+        input { width: 100%; padding: 10px; margin-top: 5px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px; }
+        .cart-item { display: flex; justify-content: space-between; margin: 10px 0; padding: 10px; background: #f1f1f1; border-radius: 4px; }
+        .summary { margin-top: 20px; border-top: 2px dashed #ccc; padding-top: 15px; }
+        .summary p { margin: 5px 0; display: flex; justify-content: space-between; }
+        .free-shipping-msg { color: #d9534f; font-weight: bold; font-size: 0.9rem; margin-top: 5px; }
+        .total-row { font-size: 1.3rem; font-weight: bold; color: #333; margin-top: 15px; }
+        button { width: 100%; padding: 15px; background-color: #333; color: white; border: none; font-size: 1.1rem; border-radius: 4px; cursor: pointer; margin-top: 20px; }
+        button:hover { background-color: #555; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>填寫收件資料</h2>
+    <label>收件人姓名</label>
+    <input type="text" id="cust_name" placeholder="請填寫真實姓名，取件需核對證件">
+
+    <label>聯絡電話</label>
+    <input type="tel" id="cust_phone" placeholder="09開頭，共10碼" maxlength="10">
+
+    <label>收件門市 (7-11 冷凍店到店)</label>
+    <input type="text" id="shipping_store" placeholder="請輸入6碼店號或門市名稱">
+
+    <h2>購物車明細</h2>
+    <div id="cart-container">
+        <div class="cart-item" data-price="500" data-qty="2">
+            <span>手工蘋果派 (冷凍) x 2</span>
+            <span>$1000</span>
+        </div>
+        <div class="cart-item" data-price="250" data-qty="1">
+            <span>兒童舒緩膏 x 1</span>
+            <span>$250</span>
+        </div>
+    </div>
+
+    <div class="summary">
+        <p><span>商品小計：</span><span id="subtotal">$0</span></p>
+        <p><span>冷凍運費：</span><span id="shipping_fee">$180</span></p>
+        <div class="free-shipping-msg" id="free_shipping_msg"></div>
+        <p class="total-row"><span>總計金額：</span><span id="grand_total">$0</span></p>
+    </div>
+
+    <button onclick="submitOrder()">確認結帳</button>
+</div>
+
+<script>
+    // 自動計算金額與免運邏輯
+    function calculateTotal() {
+        let subtotal = 0;
+        const items = document.querySelectorAll('.cart-item');
+        
+        items.forEach(item => {
+            const price = parseInt(item.getAttribute('data-price'));
+            const qty = parseInt(item.getAttribute('data-qty'));
+            subtotal += (price * qty);
+        });
+
+        document.getElementById('subtotal').innerText = `$${subtotal}`;
+
+        let shippingFee = 180;
+        let msg = '';
+
+        if (subtotal >= 1500) {
+            shippingFee = 0;
+            msg = '🎉 已達 $1500 門檻，享免運優惠！';
+        } else {
+            msg = `再買 $${1500 - subtotal} 即可享免運。`;
+        }
+
+        document.getElementById('shipping_fee').innerText = `$${shippingFee}`;
+        document.getElementById('free_shipping_msg').innerText = msg;
+        document.getElementById('grand_total').innerText = `$${subtotal + shippingFee}`;
+    }
+
+    // 送出訂單防呆檢查
+    function submitOrder() {
+        const name = document.getElementById('cust_name').value.trim();
+        const phone = document.getElementById('cust_phone').value.trim();
+        const store = document.getElementById('shipping_store').value.trim();
+
+        if (!name || !phone || !store) {
+            alert('資料沒填完喔，請確認姓名、電話和門市都有填寫。');
+            return;
+        }
+        
+        if (!phone.startsWith('09') || phone.length !== 10) {
+            alert('手機號碼格式不對，必須是 09 開頭的 10 個數字，請重新確認。');
+            return;
+        }
+
+        const totalAmt = document.getElementById('grand_total').innerText;
+        alert(`訂單送出成功！\n\n收件人：${name}\n總金額：${totalAmt}\n\n系統將為您安排出貨。`);
+    }
+
+    // 網頁載入時先算一次總價
+    window.onload = calculateTotal;
+</script>
+
+</body>
+</html>
