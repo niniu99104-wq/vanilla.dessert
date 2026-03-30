@@ -3,165 +3,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>提拉米蘇冷凍結帳系統 - 精緻甜點版</title>
+    <title>香草籽甜點｜提拉米蘇冷凍團</title>
     <style>
-        /* 全域樣式設定：奶油白與溫暖色調 */
         body { 
             font-family: "PingFang TC", "Heiti TC", "Noto Sans CJK TC", sans-serif; 
             padding: 20px; 
             max-width: 520px; 
             margin: auto; 
             line-height: 1.8; 
-            background-color: #FAF0E6; /* 奶油白背景 */
-            color: #4B3621; /* 深巧克力色文字 */
+            background-color: #FAF0E6; 
+            color: #4B3621; 
         }
-        
-        /* 整體容器：像是一個精緻的禮盒 */
         .container { 
             background: white; 
             padding: 30px; 
             border-radius: 15px; 
-            box-shadow: 0 5px 20px rgba(75,54,33,0.08); /* 淡淡的巧克力色陰影 */
+            box-shadow: 0 5px 20px rgba(75,54,33,0.08); 
         }
         
-        /* 標題：深巧克力色，帶有裝飾線 */
+        /* 頂部文案區塊樣式 */
+        .hero-section { margin-bottom: 30px; }
+        .hero-title { font-size: 1.8rem; color: #7B3F00; font-weight: bold; text-align: center; margin-bottom: 20px; letter-spacing: 2px; }
+        
+        .feature-box { background: #FFFDFB; border-left: 4px solid #D4A5A5; padding: 15px 20px; margin-bottom: 15px; border-radius: 0 8px 8px 0; }
+        .feature-item { margin-bottom: 8px; }
+        .feature-item:last-child { margin-bottom: 0; }
+        .feature-item strong { color: #7B3F00; font-size: 1.05rem; }
+        
+        .flavor-box { background: #F9EBEA; padding: 18px 20px; border-radius: 10px; margin-bottom: 15px; }
+        
+        .rule-box { background: #F1E0D6; padding: 18px 20px; border-radius: 10px; font-size: 0.95rem; }
+        .rule-box div { margin-bottom: 5px; }
+        .alert-text { color: #D9534F; font-weight: bold; font-size: 1.05rem; margin-top: 10px; border-top: 1px dashed #D4A5A5; padding-top: 10px; }
+        .insurance-text { font-size: 0.8rem; color: #888; margin-top: 10px; text-align: right; }
+
+        /* 表單與結帳樣式 */
         h2 { 
-            color: #7B3F00; 
-            text-align: center;
-            border-bottom: 2px solid #E6C7C2; /* 櫻花粉色裝飾線 */
-            padding-bottom: 12px; 
-            font-size: 1.4rem; 
-            letter-spacing: 1px;
-            margin-top: 30px;
+            color: #7B3F00; text-align: center; border-bottom: 2px solid #E6C7C2; 
+            padding-bottom: 12px; font-size: 1.4rem; letter-spacing: 1px; margin-top: 35px;
         }
-        h2:first-of-type { margin-top: 0; }
-        
-        /* 欄位標籤 */
-        label { 
-            font-weight: bold; 
-            display: block; 
-            margin-top: 18px; 
-            color: #4B3621;
-        }
-        
-        /* 輸入框：奶油色背景與圓角 */
+        label { font-weight: bold; display: block; margin-top: 18px; color: #4B3621; }
         input[type="text"], input[type="tel"] { 
-            width: 100%; 
-            padding: 12px; 
-            margin-top: 6px; 
-            box-sizing: border-box; 
-            border: 1px solid #E6C7C2; /* 粉色邊框 */
-            border-radius: 8px; 
-            background-color: #FFFDFB;
-            font-size: 1rem;
-            color: #4B3621;
+            width: 100%; padding: 12px; margin-top: 6px; box-sizing: border-box; 
+            border: 1px solid #E6C7C2; border-radius: 8px; background-color: #FFFDFB; font-size: 1rem; color: #4B3621;
         }
-        input[type="text"]:focus, input[type="tel"]:focus {
-            outline: none;
-            border-color: #965A3E; /* 聚焦時變可可色 */
-            box-shadow: 0 0 5px rgba(150,90,62,0.2);
-        }
+        input[type="text"]:focus, input[type="tel"]:focus { outline: none; border-color: #965A3E; box-shadow: 0 0 5px rgba(150,90,62,0.2); }
         
-        /* 商品購物車區塊 */
         .cart-item { 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            margin: 12px 0; 
-            padding: 20px; 
-            background: #FFFDFB; /* 非常淡的奶油色 */
-            border-radius: 10px; 
-            border: 1px solid #F1E0D6;
+            display: flex; justify-content: space-between; align-items: center; 
+            margin: 12px 0; padding: 20px; background: #FFFDFB; border-radius: 10px; border: 1px solid #F1E0D6;
         }
         .cart-item-title strong { font-size: 1.1rem; color: #7B3F00; }
         .cart-item-title small { display: block; color: #965A3E; margin-top: 4px; }
-        
-        /* 數量輸入框 */
         .cart-item input[type="number"] { 
-            width: 70px; 
-            padding: 10px; 
-            text-align: center; 
-            border: 1px solid #E6C7C2; 
-            border-radius: 8px; 
-            font-size: 1.1rem; 
-            background-color: white;
-            color: #4B3621;
+            width: 70px; padding: 10px; text-align: center; border: 1px solid #E6C7C2; 
+            border-radius: 8px; font-size: 1.1rem; background-color: white; color: #4B3621;
         }
         
-        /* 門市查詢群組 */
         .store-input-group { display: flex; gap: 10px; margin-top: 6px; align-items: stretch; }
         .store-input-group input { margin-top: 0; flex-grow: 1; }
         .store-input-group a { 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            background-color: #E6C7C2; /* 粉色查詢按鈕 */
-            padding: 0 18px; 
-            text-decoration: none; 
-            color: white; 
-            border-radius: 8px; 
-            font-size: 0.95rem; 
-            white-space: nowrap; 
-            transition: 0.3s;
+            display: flex; align-items: center; justify-content: center; background-color: #E6C7C2; 
+            padding: 0 18px; text-decoration: none; color: white; border-radius: 8px; font-size: 0.95rem; white-space: nowrap; transition: 0.3s;
         }
         .store-input-group a:hover { background-color: #D4A5A5; }
         
-        /* 金額總計區塊 */
-        .summary { 
-            margin-top: 25px; 
-            border-top: 2px dashed #E6C7C2; 
-            padding-top: 20px; 
-            background-color: #FFFDFB;
-            padding: 20px;
-            border-radius: 10px;
-        }
+        .summary { margin-top: 25px; border-top: 2px dashed #E6C7C2; padding-top: 20px; background-color: #FFFDFB; padding: 20px; border-radius: 10px; }
         .summary p { margin: 8px 0; display: flex; justify-content: space-between; font-size: 1rem; }
         .summary p span:first-child { color: #965A3E; }
+        .free-shipping-msg { color: #D9534F; font-weight: bold; font-size: 0.95rem; text-align: right; margin-top: 5px; min-height: 1.5em; }
         
-        /* 免運提示語 */
-        .free-shipping-msg { 
-            color: #D9534F; /* 警示紅，保留醒目 */
-            font-weight: bold; 
-            font-size: 0.95rem; 
-            text-align: right;
-            margin-top: 5px;
-            min-height: 1.5em; /* 保持高度避免晃動 */
-        }
-        
-        /* 總計金額大字 */
-        .total-row { 
-            font-size: 1.5rem; 
-            font-weight: bold; 
-            color: #4B3621; 
-            margin-top: 15px; 
-            border-top: 1px solid #F1E0D6;
-            padding-top: 10px;
-        }
+        .total-row { font-size: 1.5rem; font-weight: bold; color: #4B3621; margin-top: 15px; border-top: 1px solid #F1E0D6; padding-top: 10px; }
         .total-row span:last-child { color: #7B3F00; }
         
-        /* 結帳按鈕：溫暖的可可色 */
         button { 
-            width: 100%; 
-            padding: 16px; 
-            background-color: #7B3F00; /* 可可色 */
-            color: white; 
-            border: none; 
-            font-size: 1.2rem; 
-            font-weight: bold;
-            border-radius: 10px; 
-            cursor: pointer; 
-            margin-top: 25px; 
-            transition: 0.3s; 
-            letter-spacing: 2px;
-            box-shadow: 0 4px 10px rgba(123,63,0,0.2);
+            width: 100%; padding: 16px; background-color: #7B3F00; color: white; border: none; 
+            font-size: 1.2rem; font-weight: bold; border-radius: 10px; cursor: pointer; margin-top: 25px; transition: 0.3s; letter-spacing: 2px; box-shadow: 0 4px 10px rgba(123,63,0,0.2);
         }
         button:hover { background-color: #965A3E; transform: translateY(-2px); }
         button:disabled { background-color: #C0C0C0; cursor: not-allowed; transform: none; box-shadow: none;}
+        
+        /* 成功頁面樣式 */
+        .success-box { background: #FFFDFB; padding: 25px; border-radius: 10px; border: 1px solid #E6C7C2; margin-top: 20px; text-align: left; }
+        .success-box p { margin: 8px 0; }
+        .linepay-btn { display: inline-block; background: #06C755; color: white; padding: 12px 20px; text-decoration: none; border-radius: 8px; font-weight: bold; margin-top: 10px; letter-spacing: 1px; }
     </style>
 </head>
 <body>
 
-<div class="container">
+<div class="container" id="main_form">
+    
+    <div class="hero-section">
+        <div class="hero-title">香草籽甜點｜提拉米蘇</div>
+        
+        <div class="feature-box">
+            <div class="feature-item"><strong>🍪 可可酥菠蘿脆餅：</strong>苦甜脆口，拒絕開蓋見泥。</div>
+            <div class="feature-item"><strong>🥛 香濃馬斯卡邦：</strong>厚實乳香，撐起整盒的重量感。</div>
+            <div class="feature-item"><strong>🥖 阿霓欸手指餅乾：</strong>精準吸飽特調液（酒或黑咖啡），濕潤不爛。</div>
+        </div>
+
+        <div class="flavor-box">
+            <div class="feature-item">☕️ <strong>正常版（有酒）：</strong>特調咖啡酒。大人的微醺，適合深夜一人獨佔。</div>
+            <div class="feature-item">🍫 <strong>無酒版（純粹）：</strong>特調黑咖啡。直球對決的苦甜平衡。</div>
+        </div>
+
+        <div class="rule-box">
+            <div>📌 <strong>規格：</strong>9 * 9 * 6 cm (1-2 人份)</div>
+            <div>❄️ <strong>保存：</strong>冷凍 7 天 / 冷藏 5 天。退冰後立刻吃掉。</div>
+            <div>🚚 <strong>物流：</strong>超商冷凍配送（不指定到貨日）</div>
+            <div class="alert-text">⏳ 訂單爆量，下單後 14 - 21 工作天出貨。<br>能等再下單。</div>
+            <div class="insurance-text">保險：富邦產品責任險（0506字第24AML0003140號）</div>
+        </div>
+    </div>
+
     <h2>填寫收件資料</h2>
     <label>收件人姓名</label>
     <input type="text" id="cust_name" placeholder="真實姓名，取件需核對證件">
@@ -175,7 +129,7 @@
         <a href="https://emap.pcsc.com.tw/emap.aspx" target="_blank">🔍 查詢門市</a>
     </div>
 
-    <h2>購物車明細</h2>
+    <h2>選擇商品數量</h2>
     <div id="cart-container">
         <div class="cart-item">
             <div class="cart-item-title">
@@ -203,8 +157,27 @@
     <button onclick="submitOrder()">確認結帳</button>
 </div>
 
+<div id="success_template" style="display: none;">
+    <h2 style="border-bottom: none; font-size: 1.6rem; margin-top: 10px;">🎉 訂單已送出！</h2>
+    <p style="text-align: center; color: #965A3E; font-size: 1.1rem; font-weight: bold;">總金額：<span id="final_show_total"></span></p>
+    <p style="text-align: center; color: #4B3621;">請透過以下方式完成付款，我們將盡速為您排單製作。</p>
+    
+    <div class="success-box">
+        <p style="color: #7B3F00; font-size: 1.1rem;"><strong>🏦銀行轉帳</strong></p>
+        <p>銀行代碼：<strong>812 台新銀行</strong></p>
+        <p>帳號：<strong>https://line.me/ti/p/taMX75HZDW</strong></p>
+        
+        <hr style="border: 0; border-top: 1px dashed #E6C7C2; margin: 20px 0;">
+        
+        <p style="color: #7B3F00; font-size: 1.1rem;"><strong>📱手機好友轉帳（LinePay / iPassMoney）</strong></p>
+        <p>點擊下方按鈕，需先加闆娘個人LINE：</p>
+        <a href="https://line.me/ti/p/taMX75HZDW" target="_blank" class="linepay-btn">（免手續費-加好友後🉑直接手機轉帳）</a>
+    </div>
+    
+    <p style="text-align: center; font-size: 0.95rem; margin-top: 25px; color: #965A3E; font-weight: bold;">⚠️ 匯款完成後，請記得私訊我們帳號後五碼喔！</p>
+</div>
+
 <script>
-    // 計算金額與免運邏輯
     function calculateTotal() {
         const price = 600;
         const qtyNoAlcohol = parseInt(document.getElementById('qty_no_alcohol').value) || 0;
@@ -231,7 +204,6 @@
         document.getElementById('grand_total').innerText = `$${subtotal + shippingFee}`;
     }
 
-    // 送出訂單邏輯
     function submitOrder() {
         const name = document.getElementById('cust_name').value.trim();
         const phone = document.getElementById('cust_phone').value.trim();
@@ -263,12 +235,11 @@
             total: totalAmt
         };
 
-        // 按鈕變成處理中
         const btn = document.querySelector('button');
         btn.innerText = "訂單連線傳送中...";
         btn.disabled = true;
 
-        // ★★★ 把下面引號裡的字，換成妳的 Google Apps Script 網址 ★★★
+        // ★★★ 第一個要改的地方：換成妳的 Google Apps Script 網址 ★★★
         const scriptURL = 'https://script.google.com/macros/s/AKfycbwYbCgkVtzYzbSddv-9zHPX8zx6_SqAZx9Z10dkaPkGpWAEWfCxU3ALBIYKgmT9WPQL5A/exec';
 
         fetch(scriptURL, {
@@ -277,8 +248,9 @@
             headers: { 'Content-Type': 'text/plain;charset=utf-8' }
         })
         .then(response => {
-            alert(`訂單送出成功！\n\n我們將盡快為您安排出貨。`);
-            window.location.reload(); 
+            document.getElementById('final_show_total').innerText = totalAmt;
+            document.getElementById('main_form').innerHTML = document.getElementById('success_template').innerHTML;
+            window.scrollTo(0, 0); 
         })
         .catch(error => {
             alert('網路卡住了，請稍後再試一次。');
