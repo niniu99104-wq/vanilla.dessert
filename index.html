@@ -22,8 +22,9 @@
         .summary p { margin: 5px 0; display: flex; justify-content: space-between; }
         .free-shipping-msg { color: #d9534f; font-weight: bold; font-size: 0.9rem; margin-top: 5px; }
         .total-row { font-size: 1.3rem; font-weight: bold; color: #333; margin-top: 15px; }
-        button { width: 100%; padding: 15px; background-color: #333; color: white; border: none; font-size: 1.1rem; border-radius: 4px; cursor: pointer; margin-top: 20px; }
+        button { width: 100%; padding: 15px; background-color: #333; color: white; border: none; font-size: 1.1rem; border-radius: 4px; cursor: pointer; margin-top: 20px; transition: 0.3s; }
         button:hover { background-color: #555; }
+        button:disabled { background-color: #888; cursor: not-allowed; }
     </style>
 </head>
 <body>
@@ -120,7 +121,41 @@
         }
 
         const totalAmt = document.getElementById('grand_total').innerText;
-        alert(`訂單送出成功！\n\n收件人：${name}\n總金額：${totalAmt}\n\n系統將為您安排出貨。`);
+
+        // 收集要送到 Google 表單的資料
+        const orderData = {
+            name: name,
+            phone: phone,
+            store: store,
+            qty_no_alcohol: qtyNoAlcohol,
+            qty_normal: qtyNormal,
+            total: totalAmt
+        };
+
+        // 按鈕變成處理中，防止重複點擊
+        const btn = document.querySelector('button');
+        btn.innerText = "訂單連線傳送中...";
+        btn.disabled = true;
+
+        // ★★★ 下面引號裡的字，換成妳的 Google Apps Script 網址 ★★★
+        const scriptURL = '請把妳剛剛複製的網址貼在這裡';
+
+        fetch(scriptURL, {
+            method: 'POST',
+            body: JSON.stringify(orderData),
+            headers: {
+                'Content-Type': 'text/plain;charset=utf-8',
+            }
+        })
+        .then(response => {
+            alert(`訂單送出成功！\n\n收件人：${name}\n總金額：${totalAmt}\n\n我們將盡快為您安排出貨。`);
+            window.location.reload(); 
+        })
+        .catch(error => {
+            alert('網路好像卡住了，請稍後再試一次。');
+            btn.innerText = "確認結帳";
+            btn.disabled = false;
+        });
     }
 
     window.onload = calculateTotal;
