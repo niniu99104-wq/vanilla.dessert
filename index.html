@@ -90,11 +90,12 @@
         .fb-btn { display: inline-block; background: #7B3F00; color: white; padding: 12px 25px; text-decoration: none; border-radius: 8px; font-weight: bold; margin-top: 10px; letter-spacing: 1px; transition: 0.3s; box-shadow: 0 3px 8px rgba(123,63,0,0.2); }
         .fb-btn:hover { background: #965A3E; transform: translateY(-2px); }
         
-        /* 總金額醒目框 */
-        .highlight-total { background: #FFFDFB; border: 2px dashed #D9534F; border-radius: 10px; padding: 15px; text-align: center; margin: 15px 0; }
+        /* 總金額與單號醒目框 */
+        .highlight-total { background: #FFFDFB; border: 2px dashed #D9534F; border-radius: 10px; padding: 20px; text-align: center; margin: 15px 0; }
         .highlight-total p { margin: 0; }
         .highlight-total .label { font-size: 1.1rem; color: #4B3621; font-weight: bold; }
         .highlight-total .amount { font-size: 2.2rem; color: #D9534F; font-weight: bold; margin-top: 5px; }
+        .highlight-total .order-id-display { font-size: 1.2rem; color: #7B3F00; font-weight: bold; margin-top: 15px; border-top: 1px solid #F1E0D6; padding-top: 15px;}
     </style>
 </head>
 <body>
@@ -105,14 +106,14 @@
         <div class="hero-title">香草籽甜點｜提拉米蘇</div>
         
         <div class="feature-box">
-            <div class="feature-item"><strong>🍪 可可酥菠蘿脆餅：</strong><br>苦甜脆口，酥脆好吃。</div>
-            <div class="feature-item"><strong>🥛 香濃馬斯卡邦：</strong><br>厚實乳香，濃郁滿足感。</div>
-            <div class="feature-item"><strong>🥖 阿霓欸手指餅乾：</strong><br>吸滿（酒或黑咖啡），濕潤不爛。</div>
+            <div class="feature-item"><strong>🍪 可可酥菠蘿脆餅：</strong><br>苦甜脆口，拒絕開蓋見泥。</div>
+            <div class="feature-item"><strong>🥛 香濃馬斯卡邦：</strong><br>厚實乳香，撐起整盒的重量感。</div>
+            <div class="feature-item"><strong>🥖 阿霓欸手指餅乾：</strong><br>精準吸飽特調液（酒或黑咖啡），濕潤不爛。</div>
         </div>
 
         <div class="flavor-box">
-            <div class="feature-item">☕️ <strong>正常版（有酒）：</strong><br>特調咖啡酒。大人微醺，深夜一人獨佔。</div>
-            <div class="feature-item">🍫 <strong>無酒版（純粹）：</strong><br>特調黑咖啡。直球對決苦甜平衡。</div>
+            <div class="feature-item">☕️ <strong>正常版（有酒）：</strong><br>特調咖啡酒。大人的微醺，適合深夜一人獨佔。</div>
+            <div class="feature-item">🍫 <strong>無酒版（純粹）：</strong><br>特調黑咖啡。直球對決的苦甜平衡。</div>
         </div>
 
         <div class="rule-box">
@@ -171,9 +172,10 @@
     <div class="highlight-total">
         <p class="label">請匯款以下總金額 💰</p>
         <p class="amount" id="final_show_total"></p>
+        <p class="order-id-display">專屬訂單編號：<span id="final_order_id" style="color:#D9534F;"></span></p>
     </div>
 
-    <p style="text-align: center; color: #4B3621;">請透過以下方式完成付款，我們將盡速為您排單製作。</p>
+    <p style="text-align: center; color: #4B3621;">請透過以下方式完成付款，並截圖此畫面回傳給我們。</p>
     
     <div class="success-box">
         <p style="color: #7B3F00; font-size: 1.1rem;"><strong>🏦銀行轉帳</strong></p>
@@ -187,7 +189,7 @@
         <a href="https://line.me/ti/p/taMX75HZDW" target="_blank" class="linepay-btn">（免手續費-加好友後🉑直接手機轉帳）</a>
     </div>
     
-    <p style="text-align: center; font-size: 0.95rem; margin-top: 25px; color: #965A3E; font-weight: bold;">⚠️ 匯款完成後，請記得私訊我們帳號後五碼喔！</p>
+    <p style="text-align: center; font-size: 0.95rem; margin-top: 25px; color: #965A3E; font-weight: bold;">⚠️ 匯款完成後，請記得私訊我們「訂單編號」與「帳號後五碼」喔！</p>
     
     <div style="text-align: center; margin-top: 15px;">
         <a href="https://www.facebook.com/VanillaPatisserie.Tainan" target="_blank" class="fb-btn">💬 點此私訊香草籽粉絲團</a>
@@ -242,8 +244,17 @@
         }
 
         const totalAmt = document.getElementById('grand_total').innerText;
+        
+        // 產生專屬訂單編號 (VD + 兩碼年份 + 月份 + 日期 + 4碼隨機數)
+        const d = new Date();
+        const yy = d.getFullYear().toString().slice(-2);
+        const mm = ('0' + (d.getMonth() + 1)).slice(-2);
+        const dd = ('0' + d.getDate()).slice(-2);
+        const randomStr = Math.floor(1000 + Math.random() * 9000);
+        const generatedOrderId = 'VD' + yy + mm + dd + randomStr;
 
         const orderData = {
+            order_id: generatedOrderId,  // 把單號塞進要傳送的資料裡
             name: name,
             phone: phone,
             store: store,
@@ -256,7 +267,8 @@
         btn.innerText = "訂單連線傳送中...";
         btn.disabled = true;
 
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbwYbCgkVtzYzbSddv-9zHPX8zx6_SqAZx9Z10dkaPkGpWAEWfCxU3ALBIYKgmT9WPQL5A/exec';
+        // ★★★ 把下面這裡換成妳剛剛重新部署出來的「新網址」 ★★★
+        const scriptURL = 'https://script.google.com/macros/s/AKfycby461uY8_a7ni2s2w2KscvbBgcqGEFWKF2FVm7mDpBbINXBLEa-0s-SbeHOw4oP-qis4g/exec';
 
         fetch(scriptURL, {
             method: 'POST',
@@ -264,8 +276,10 @@
             headers: { 'Content-Type': 'text/plain;charset=utf-8' }
         })
         .then(response => {
-            // 把總金額塞進醒目框框裡
+            // 把總金額跟單號塞進成功的畫面裡
             document.getElementById('final_show_total').innerText = totalAmt;
+            document.getElementById('final_order_id').innerText = generatedOrderId;
+            
             document.getElementById('main_form').innerHTML = document.getElementById('success_template').innerHTML;
             window.scrollTo(0, 0); 
         })
