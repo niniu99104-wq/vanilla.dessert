@@ -70,3 +70,24 @@ img {
     margin-bottom: 15px; /* 與下方口味區保持距離 */
     box-shadow: 0 4px 10px rgba(75,54,33,0.1); /* 加入一點淡淡的陰影，更有質感 */
 }
+
+/* --- 手機版專屬微調 (螢幕寬度小於 600px 時生效) --- */
+@media (max-width: 600px) {
+    /* 1. 減少最外層與容器的留白，把空間還給文字 */
+    body { padding: 10px; }
+    .container { padding: 15px; }
+    
+    /* 2. 減少購物車區塊的留白，讓品名與下拉選單有足夠的空間並排 */
+    .cart-item { padding: 12px; }
+    .cart-item-title strong { font-size: 1rem; } /* 品名稍微縮小一點點 */
+    .qty-select { width: 80px; padding: 8px; font-size: 1rem; } /* 選單稍微縮小一點點 */
+    
+    /* 3. 門市查詢按鈕在手機上改為上下排列，按起來更大更好點 */
+    .store-input-group { flex-direction: column; }
+    .store-input-group a { padding: 12px; margin-top: 5px; }
+    
+    /* 4. 總金額稍微縮小，避免在小手機上折行 */
+    .total-row { font-size: 1.3rem; }
+    .grand-total-price { font-size: 1.8rem; }
+    .final-huge-price { font-size: 2.2rem; }
+}
