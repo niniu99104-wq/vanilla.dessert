@@ -4,119 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>香草籽甜點｜提拉米蘇冷凍團</title>
-    <style>
-        body { 
-            font-family: "PingFang TC", "Heiti TC", "Noto Sans CJK TC", sans-serif; 
-            padding: 20px; 
-            max-width: 520px; 
-            margin: auto; 
-            line-height: 1.8; 
-            background-color: #FAF0E6; 
-            color: #4B3621; 
-        }
-        .container { 
-            background: white; 
-            padding: 30px; 
-            border-radius: 15px; 
-            box-shadow: 0 5px 20px rgba(75,54,33,0.08); 
-        }
-        
-        /* 頂部文案區塊樣式 */
-        .hero-section { margin-bottom: 30px; }
-        .hero-title { font-size: 1.8rem; color: #7B3F00; font-weight: bold; text-align: center; margin-bottom: 20px; letter-spacing: 2px; }
-        
-        .feature-box { background: #FFFDFB; border-left: 4px solid #D4A5A5; padding: 15px 20px; margin-bottom: 15px; border-radius: 0 8px 8px 0; }
-        .feature-item { margin-bottom: 8px; }
-        .feature-item:last-child { margin-bottom: 0; }
-        .feature-item strong { color: #7B3F00; font-size: 1.05rem; }
-        
-        .flavor-box { background: #F9EBEA; padding: 18px 20px; border-radius: 10px; margin-bottom: 15px; }
-        
-        .rule-box { background: #F1E0D6; padding: 18px 20px; border-radius: 10px; font-size: 0.95rem; }
-        .rule-box div { margin-bottom: 5px; }
-        .alert-text { color: #D9534F; font-weight: bold; font-size: 1.05rem; margin-top: 10px; border-top: 1px dashed #D4A5A5; padding-top: 10px; }
-        .insurance-text { font-size: 0.8rem; color: #888; margin-top: 10px; text-align: right; }
-
-        /* 表單與結帳樣式 */
-        h2 { 
-            color: #7B3F00; text-align: center; border-bottom: 2px solid #E6C7C2; 
-            padding-bottom: 12px; font-size: 1.4rem; letter-spacing: 1px; margin-top: 35px;
-        }
-        label { font-weight: bold; display: block; margin-top: 18px; color: #4B3621; }
-        input[type="text"], input[type="tel"] { 
-            width: 100%; padding: 12px; margin-top: 6px; box-sizing: border-box; 
-            border: 1px solid #E6C7C2; border-radius: 8px; background-color: #FFFDFB; font-size: 1rem; color: #4B3621;
-        }
-        input[type="text"]:focus, input[type="tel"]:focus { outline: none; border-color: #965A3E; box-shadow: 0 0 5px rgba(150,90,62,0.2); }
-        
-        .cart-item { 
-            display: flex; justify-content: space-between; align-items: center; 
-            margin: 12px 0; padding: 20px; background: #FFFDFB; border-radius: 10px; border: 1px solid #F1E0D6;
-        }
-        .cart-item-title strong { font-size: 1.1rem; color: #7B3F00; }
-        .cart-item-title small { display: block; color: #965A3E; margin-top: 4px; }
-        .cart-item input[type="number"] { 
-            width: 70px; padding: 10px; text-align: center; border: 1px solid #E6C7C2; 
-            border-radius: 8px; font-size: 1.1rem; background-color: white; color: #4B3621;
-        }
-        
-        .store-input-group { display: flex; gap: 10px; margin-top: 6px; align-items: stretch; }
-        .store-input-group input { margin-top: 0; flex-grow: 1; }
-        .store-input-group a { 
-            display: flex; align-items: center; justify-content: center; background-color: #E6C7C2; 
-            padding: 0 18px; text-decoration: none; color: white; border-radius: 8px; font-size: 0.95rem; white-space: nowrap; transition: 0.3s;
-        }
-        .store-input-group a:hover { background-color: #D4A5A5; }
-        
-        .summary { margin-top: 25px; border-top: 2px dashed #E6C7C2; padding-top: 20px; background-color: #FFFDFB; padding: 20px; border-radius: 10px; }
-        .summary p { margin: 8px 0; display: flex; justify-content: space-between; font-size: 1rem; }
-        .summary p span:first-child { color: #965A3E; }
-        .free-shipping-msg { color: #D9534F; font-weight: bold; font-size: 0.95rem; text-align: right; margin-top: 5px; min-height: 1.5em; }
-        
-        .total-row { font-size: 1.5rem; font-weight: bold; color: #4B3621; margin-top: 15px; border-top: 1px solid #F1E0D6; padding-top: 10px; }
-        .total-row span:last-child { color: #7B3F00; }
-        
-        button { 
-            width: 100%; padding: 16px; background-color: #7B3F00; color: white; border: none; 
-            font-size: 1.2rem; font-weight: bold; border-radius: 10px; cursor: pointer; margin-top: 25px; transition: 0.3s; letter-spacing: 2px; box-shadow: 0 4px 10px rgba(123,63,0,0.2);
-        }
-        button:hover { background-color: #965A3E; transform: translateY(-2px); }
-        button:disabled { background-color: #C0C0C0; cursor: not-allowed; transform: none; box-shadow: none;}
-        
-        /* 成功頁面專屬樣式 */
-        .success-box { background: #FFFDFB; padding: 25px; border-radius: 10px; border: 1px solid #E6C7C2; margin-top: 20px; text-align: left; }
-        .success-box p { margin: 8px 0; }
-        .linepay-btn { display: inline-block; background: #06C755; color: white; padding: 12px 20px; text-decoration: none; border-radius: 8px; font-weight: bold; margin-top: 10px; letter-spacing: 1px; }
-        .fb-btn { display: inline-block; background: #7B3F00; color: white; padding: 12px 25px; text-decoration: none; border-radius: 8px; font-weight: bold; margin-top: 10px; letter-spacing: 1px; transition: 0.3s; box-shadow: 0 3px 8px rgba(123,63,0,0.2); }
-        .fb-btn:hover { background: #965A3E; transform: translateY(-2px); }
-        
-        /* 總金額與單號醒目框 */
-        .highlight-total { background: #FFFDFB; border: 2px dashed #D9534F; border-radius: 10px; padding: 20px; text-align: center; margin: 15px 0; }
-        .highlight-total p { margin: 0; }
-        .highlight-total .label { font-size: 1.1rem; color: #4B3621; font-weight: bold; }
-        .highlight-total .amount { font-size: 2.2rem; color: #D9534F; font-weight: bold; margin-top: 5px; }
-        .highlight-total .order-id-display { font-size: 1.2rem; color: #7B3F00; font-weight: bold; margin-top: 15px; border-top: 1px solid #F1E0D6; padding-top: 15px;}
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div class="container" id="main_form">
-    
     <div class="hero-section">
         <div class="hero-title">香草籽甜點｜提拉米蘇</div>
-        
         <div class="feature-box">
             <div class="feature-item"><strong>🍪 可可酥菠蘿脆餅：</strong><br>苦甜脆口，拒絕開蓋見泥。</div>
             <div class="feature-item"><strong>🥛 香濃馬斯卡邦：</strong><br>厚實乳香，撐起整盒的重量感。</div>
             <div class="feature-item"><strong>🥖 阿霓欸手指餅乾：</strong><br>精準吸飽特調液（酒或黑咖啡），濕潤不爛。</div>
         </div>
-
         <div class="flavor-box">
             <div class="feature-item">☕️ <strong>正常版（有酒）：</strong><br>特調咖啡酒。大人的微醺，適合深夜一人獨佔。</div>
-            <div class="feature-item">☕️ <strong>濃郁版（加厚）：</strong><br>特調咖啡酒。酒控最愛，加厚的療癒感。</div> <div class="feature-item">☕️ <strong>正常版（有酒）：</strong><br>特調咖啡酒。大人的微醺，適合深夜一人獨佔。</div>
+            <div class="feature-item">☕️ <strong>濃郁版（加厚）：</strong><br>特調咖啡酒。酒控最愛，加厚的療癒感。</div>
             <div class="feature-item">🍫 <strong>無酒版（純粹）：</strong><br>特調黑咖啡。直球對決的苦甜平衡。</div>
         </div>
-
         <div class="rule-box">
             <div>📌<strong>規格：</strong>9 * 9 * 6 cm (1-2 人份)</div>
             <div>❄️<strong>保存：</strong>冷凍 7 天 / 冷藏 5 天。退冰後立刻吃掉。</div>
@@ -129,10 +33,8 @@
     <h2>填寫收件資料</h2>
     <label>收件人姓名</label>
     <input type="text" id="cust_name" placeholder="真實姓名，取件需核對證件">
-
     <label>聯絡電話</label>
     <input type="tel" id="cust_phone" placeholder="09開頭，共10碼" maxlength="10">
-
     <label>收件門市 (7-11 冷凍店到店)</label>
     <div class="store-input-group">
         <input type="text" id="shipping_store" placeholder="6碼店號或門市名稱">
@@ -142,22 +44,15 @@
     <h2>選擇商品數量</h2>
     <div id="cart-container">
         <div class="cart-item">
-            <div class="cart-item-title">
-                <strong>提拉米蘇-無酒精版3盒</strong>
-                <small>單組 $850</small>
-            </div>
+            <div class="cart-item-title"><strong>提拉米蘇-無酒精版3盒</strong><small>單組 $850</small></div>
             <input type="number" id="qty_no_alcohol" value="0" min="0" onchange="calculateTotal()">
         </div>
-            <div class="cart-item">
-            <div class="cart-item-title">
-                <strong>提拉米蘇-加厚版3盒</strong>
-                <small>單組 $850</small>
-            </div>
         <div class="cart-item">
-            <div class="cart-item-title">
-                <strong>提拉米蘇-正常版3盒</strong>
-                <small>單組 $850</small>
-            </div>
+            <div class="cart-item-title"><strong>提拉米蘇-加厚版3盒</strong><small>單組 $850</small></div>
+            <input type="number" id="qty_strong" value="0" min="0" onchange="calculateTotal()">
+        </div>
+        <div class="cart-item">
+            <div class="cart-item-title"><strong>提拉米蘇-正常版3盒</strong><small>單組 $850</small></div>
             <input type="number" id="qty_normal" value="0" min="0" onchange="calculateTotal()">
         </div>
     </div>
@@ -168,136 +63,27 @@
         <div class="free-shipping-msg" id="free_shipping_msg"></div>
         <p class="total-row"><span>總計金額</span><span id="grand_total">$0</span></p>
     </div>
-
     <button onclick="submitOrder()">確認結帳</button>
 </div>
 
 <div id="success_template" style="display: none;">
     <h2 style="border-bottom: none; font-size: 1.6rem; margin-top: 10px;">🎉 訂單已送出！</h2>
-    
     <div class="highlight-total">
         <p class="label">請匯款以下總金額 💰</p>
         <p class="amount" id="final_show_total"></p>
         <p class="order-id-display">專屬訂單編號：<span id="final_order_id" style="color:#D9534F;"></span></p>
     </div>
-
-    <p style="text-align: center; color: #4B3621;">請透過以下方式完成付款，並截圖此畫面回傳給我們。</p>
-    
+    <p style="text-align: center; color: #4B3621;">請完成付款後，私訊「訂單編號」與「後五碼」給我們。</p>
     <div class="success-box">
-        <p style="color: #7B3F00; font-size: 1.1rem;"><strong>🏦銀行轉帳</strong></p>
-        <p>銀行代碼：<strong>812 台新銀行</strong></p>
-        <p>帳號：<strong>28881023351575</strong></p>
-        
-        <hr style="border: 0; border-top: 1px dashed #E6C7C2; margin: 20px 0;">
-        
-        <p style="color: #7B3F00; font-size: 1.1rem;"><strong>📱手機好友轉帳（LinePay / iPassMoney）</strong></p>
-        <p>點擊下方按鈕，需先加闆娘個人LINE：</p>
-        <a href="https://line.me/ti/p/taMX75HZDW" target="_blank" class="linepay-btn">（免手續費-加好友後🉑直接手機轉帳）</a>
+        <p><strong>🏦銀行轉帳：</strong>812 台新 (28881023351575)</p>
+        <hr style="border: 0; border-top: 1px dashed #E6C7C2; margin: 15px 0;">
+        <p><strong>📱LinePay：</strong><a href="https://line.me/ti/p/taMX75HZDW" target="_blank" style="color:#06C755; text-decoration:none;">點此加好友轉帳</a></p>
     </div>
-    
-    <p style="text-align: center; font-size: 0.95rem; margin-top: 25px; color: #965A3E; font-weight: bold;">⚠️ 匯款完成後，請記得私訊我們「訂單編號」與「帳號後五碼」喔！</p>
-    
-    <div style="text-align: center; margin-top: 15px;">
-        <a href="https://www.facebook.com/VanillaPatisserie.Tainan" target="_blank" class="fb-btn">💬 點此私訊香草籽粉絲團</a>
+    <div style="text-align: center; margin-top: 20px;">
+        <a href="https://www.facebook.com/VanillaPatisserie.Tainan" target="_blank" class="fb-btn">💬 私訊香草籽粉絲團</a>
     </div>
 </div>
 
-<script>
-    function calculateTotal() {
-        const price = 850;
-        const qtyNoAlcohol = parseInt(document.getElementById('qty_no_alcohol').value) || 0;
-        const qtyNormal = parseInt(document.getElementById('qty_normal').value) || 0;
-        
-        const subtotal = (qtyNoAlcohol + qtyNormal) * price;
-        document.getElementById('subtotal').innerText = `$${subtotal}`;
-
-        let shippingFee = 129;
-        let msg = '';
-
-        if (subtotal === 0) {
-            msg = '';
-            shippingFee = 0; 
-        } else if (subtotal >= 1500) {
-            shippingFee = 0;
-            msg = '🎉 已達 $1500 門檻，享免運優惠！';
-        } else {
-            msg = `再買 $${1500 - subtotal} 即可享冷凍免運。`;
-        }
-
-        document.getElementById('shipping_fee').innerText = `$${shippingFee}`;
-        document.getElementById('free_shipping_msg').innerText = msg;
-        document.getElementById('grand_total').innerText = `$${subtotal + shippingFee}`;
-    }
-
-    function submitOrder() {
-        const name = document.getElementById('cust_name').value.trim();
-        const phone = document.getElementById('cust_phone').value.trim();
-        const store = document.getElementById('shipping_store').value.trim();
-        const qtyNoAlcohol = parseInt(document.getElementById('qty_no_alcohol').value) || 0;
-        const qtyNormal = parseInt(document.getElementById('qty_normal').value) || 0;
-
-        if (qtyNoAlcohol === 0 && qtyNormal === 0) {
-            alert('購物車是空的，請至少選擇一組提拉米蘇再結帳喔。');
-            return;
-        }
-        if (!name || !phone || !store) {
-            alert('資料沒填完喔，請確認姓名、電話和門市都有填寫。');
-            return;
-        }
-        if (!phone.startsWith('09') || phone.length !== 10) {
-            alert('手機號碼格式不對，必須是 09 開頭的 10 個數字。');
-            return;
-        }
-
-        const totalAmt = document.getElementById('grand_total').innerText;
-        
-        // 產生專屬訂單編號 (VD + 兩碼年份 + 月份 + 日期 + 4碼隨機數)
-        const d = new Date();
-        const yy = d.getFullYear().toString().slice(-2);
-        const mm = ('0' + (d.getMonth() + 1)).slice(-2);
-        const dd = ('0' + d.getDate()).slice(-2);
-        const randomStr = Math.floor(1000 + Math.random() * 9000);
-        const generatedOrderId = 'VD' + yy + mm + dd + randomStr;
-
-        const orderData = {
-            order_id: generatedOrderId,  // 把單號塞進要傳送的資料裡
-            name: name,
-            phone: phone,
-            store: store,
-            qty_no_alcohol: qtyNoAlcohol,
-            qty_normal: qtyNormal,
-            total: totalAmt
-        };
-
-        const btn = document.querySelector('button');
-        btn.innerText = "訂單連線傳送中...";
-        btn.disabled = true;
-
-        // ★★★ 把下面這裡換成妳剛剛重新部署出來的「新網址」 ★★★
-        const scriptURL = 'https://script.google.com/macros/s/AKfycby461uY8_a7ni2s2w2KscvbBgcqGEFWKF2FVm7mDpBbINXBLEa-0s-SbeHOw4oP-qis4g/exec';
-
-        fetch(scriptURL, {
-            method: 'POST',
-            body: JSON.stringify(orderData),
-            headers: { 'Content-Type': 'text/plain;charset=utf-8' }
-        })
-        .then(response => {
-            // 把總金額跟單號塞進成功的畫面裡
-            document.getElementById('final_show_total').innerText = totalAmt;
-            document.getElementById('final_order_id').innerText = generatedOrderId;
-            
-            document.getElementById('main_form').innerHTML = document.getElementById('success_template').innerHTML;
-            window.scrollTo(0, 0); 
-        })
-        .catch(error => {
-            alert('網路卡住了，請稍後再試一次。');
-            btn.innerText = "確認結帳";
-            btn.disabled = false;
-        });
-    }
-
-    window.onload = calculateTotal;
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
