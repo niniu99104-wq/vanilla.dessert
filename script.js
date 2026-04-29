@@ -36,7 +36,7 @@ function submitOrder() {
     btn.innerText = "傳送中..."; btn.disabled = true;
 
     // ★★★ 務必替換為您最新的 GAS 部署網址 ★★★
-    const scriptURL = 'https://script.google.com/macros/s/AKfycby461uY8_a7ni2s2w2KscvbBgcqGEFWKF2FVm7mDpBbINXBLEa-0s-SbeHOw4oP-qis4g/exec';
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzXzqqJWsjckt7PnWUHXR5v5daOhvnWQCMwdzo3gjZ7iVVJ99RAsD9s72Ru_PCDt543/exec';
 
     fetch(scriptURL, { method: 'POST', body: JSON.stringify(data), headers: { 'Content-Type': 'text/plain;charset=utf-8' } })
     .then(() => {
