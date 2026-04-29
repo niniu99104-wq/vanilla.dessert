@@ -1,19 +1,46 @@
-body { font-family: sans-serif; padding: 20px; max-width: 520px; margin: auto; line-height: 1.8; background-color: #FAF0E6; color: #4B3621; }
-.container { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
-.hero-title { font-size: 1.8rem; color: #7B3F00; font-weight: bold; text-align: center; margin-bottom: 20px; }
-.feature-box { background: #FFFDFB; border-left: 4px solid #D4A5A5; padding: 15px; margin-bottom: 15px; }
-.flavor-box { background: #F9EBEA; padding: 15px; border-radius: 10px; margin-bottom: 15px; }
-.rule-box { background: #F1E0D6; padding: 15px; border-radius: 10px; font-size: 0.9rem; }
-.alert-text { color: #D9534F; font-weight: bold; margin-top: 10px; }
-h2 { color: #7B3F00; text-align: center; border-bottom: 2px solid #E6C7C2; padding-bottom: 10px; margin-top: 30px; }
-input[type="text"], input[type="tel"], input[type="number"] { width: 100%; padding: 12px; margin-top: 6px; border: 1px solid #E6C7C2; border-radius: 8px; box-sizing: border-box; }
-.cart-item { display: flex; justify-content: space-between; align-items: center; margin: 10px 0; padding: 15px; background: #FFFDFB; border-radius: 10px; border: 1px solid #F1E0D6; }
-.cart-item input { width: 70px; margin-top: 0; text-align: center; }
-.store-input-group { display: flex; gap: 10px; }
-.store-input-group a { background: #E6C7C2; color: white; padding: 10px; text-decoration: none; border-radius: 8px; font-size: 0.8rem; display: flex; align-items: center; }
-.summary { margin-top: 20px; padding: 15px; background: #FFFDFB; border-radius: 10px; border-top: 2px dashed #E6C7C2; }
-.total-row { font-size: 1.4rem; font-weight: bold; color: #7B3F00; border-top: 1px solid #F1E0D6; padding-top: 10px; display: flex; justify-content: space-between; }
-button { width: 100%; padding: 16px; background: #7B3F00; color: white; border: none; font-size: 1.2rem; font-weight: bold; border-radius: 10px; cursor: pointer; margin-top: 20px; }
+body { font-family: "PingFang TC", "Heiti TC", "Noto Sans CJK TC", sans-serif; padding: 20px; max-width: 520px; margin: auto; line-height: 1.8; background-color: #FAF0E6; color: #4B3621; }
+.container { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 5px 20px rgba(75,54,33,0.08); }
+.hero-section { margin-bottom: 30px; }
+.hero-title { font-size: 1.8rem; color: #7B3F00; font-weight: bold; text-align: center; margin-bottom: 20px; letter-spacing: 2px; }
+
+.feature-box { background: #FFFDFB; border-left: 4px solid #D4A5A5; padding: 15px 20px; margin-bottom: 15px; border-radius: 0 8px 8px 0; }
+.feature-item { margin-bottom: 8px; }
+.feature-item strong { color: #7B3F00; font-size: 1.05rem; }
+
+.flavor-box { background: #F9EBEA; padding: 18px 20px; border-radius: 10px; margin-bottom: 15px; }
+.rule-box { background: #F1E0D6; padding: 18px 20px; border-radius: 10px; font-size: 0.95rem; }
+.alert-text { color: #D9534F; font-weight: bold; font-size: 1.05rem; margin-top: 10px; border-top: 1px dashed #D4A5A5; padding-top: 10px; }
+.insurance-text { font-size: 0.8rem; color: #888; margin-top: 10px; text-align: right; }
+
+h2 { color: #7B3F00; text-align: center; border-bottom: 2px solid #E6C7C2; padding-bottom: 12px; font-size: 1.4rem; letter-spacing: 1px; margin-top: 35px; }
+label { font-weight: bold; display: block; margin-top: 18px; color: #4B3621; }
+input[type="text"], input[type="tel"] { width: 100%; padding: 12px; margin-top: 6px; box-sizing: border-box; border: 1px solid #E6C7C2; border-radius: 8px; background-color: #FFFDFB; font-size: 1rem; color: #4B3621; }
+
+.cart-item { display: flex; justify-content: space-between; align-items: center; margin: 12px 0; padding: 20px; background: #FFFDFB; border-radius: 10px; border: 1px solid #F1E0D6; }
+.cart-item-title strong { font-size: 1.1rem; color: #7B3F00; }
+.unit-price { display: block; font-size: 1.2rem; font-weight: bold; color: #D9534F; margin-top: 6px; }
+.qty-select { width: 90px; padding: 10px; border: 1px solid #E6C7C2; border-radius: 8px; font-size: 1.1rem; text-align: center; background: white; color: #4B3621; cursor: pointer; }
+
+.store-input-group { display: flex; gap: 10px; margin-top: 6px; align-items: stretch; }
+.store-input-group input { margin-top: 0; flex-grow: 1; }
+.store-input-group a { display: flex; align-items: center; justify-content: center; background-color: #E6C7C2; padding: 0 18px; text-decoration: none; color: white; border-radius: 8px; font-size: 0.95rem; white-space: nowrap; transition: 0.3s; }
+.store-input-group a:hover { background-color: #D4A5A5; }
+
+.summary { margin-top: 25px; border-top: 2px dashed #E6C7C2; padding-top: 20px; background-color: #FFFDFB; padding: 20px; border-radius: 10px; }
+.summary p { margin: 8px 0; display: flex; justify-content: space-between; font-size: 1rem; }
+.free-shipping-msg { color: #D9534F; font-weight: bold; font-size: 0.95rem; text-align: right; margin-top: 5px; min-height: 1.5em; }
+
+.total-row { display: flex; align-items: center; justify-content: space-between; margin-top: 15px; border-top: 1px solid #F1E0D6; padding-top: 20px; }
+.grand-total-price { color: #D9534F; font-size: 2.3rem; font-weight: bold; }
+
+button { width: 100%; padding: 16px; background-color: #7B3F00; color: white; border: none; font-size: 1.2rem; font-weight: bold; border-radius: 10px; cursor: pointer; margin-top: 25px; transition: 0.3s; letter-spacing: 2px; }
+button:hover { background-color: #965A3E; transform: translateY(-2px); }
+button:disabled { background-color: #C0C0C0; cursor: not-allowed; }
+
 .highlight-total { background: #FFFDFB; border: 2px dashed #D9534F; border-radius: 10px; padding: 20px; text-align: center; margin: 15px 0; }
-.amount { font-size: 2rem; color: #D9534F; font-weight: bold; }
-.fb-btn { display: inline-block; background: #7B3F00; color: white; padding: 12px 25px; text-decoration: none; border-radius: 8px; font-weight: bold; }
+.final-huge-price { font-size: 3rem; color: #D9534F; font-weight: bold; margin: 10px 0; line-height: 1.2; }
+.order-id-display { font-size: 1.2rem; color: #7B3F00; font-weight: bold; margin-top: 15px; border-top: 1px solid #F1E0D6; padding-top: 15px; }
+
+.success-box { background: #FFFDFB; padding: 25px; border-radius: 10px; border: 1px solid #E6C7C2; margin-top: 20px; text-align: left; }
+.linepay-btn { display: inline-block; background: #06C755; color: white; padding: 12px 20px; text-decoration: none; border-radius: 8px; font-weight: bold; margin-top: 10px; }
+.fb-btn { display: inline-block; background: #7B3F00; color: white; padding: 12px 25px; text-decoration: none; border-radius: 8px; font-weight: bold; margin-top: 10px; }
