@@ -44,24 +44,74 @@
     <h2>選擇商品數量</h2>
     <div id="cart-container">
         <div class="cart-item">
-            <div class="cart-item-title"><strong>提拉米蘇-無酒精版3盒</strong><small>單組 $850</small></div>
-            <input type="number" id="qty_no_alcohol" value="0" min="0" onchange="calculateTotal()">
+            <div class="cart-item-title">
+                <strong>提拉米蘇-無酒精版3盒</strong>
+                <span style="display: block; font-size: 1.2rem; font-weight: bold; color: #D9534F; margin-top: 6px;">單組 $850</span>
+            </div>
+            <select id="qty_no_alcohol" onchange="calculateTotal()" style="width: 85px; padding: 10px; border: 1px solid #E6C7C2; border-radius: 8px; font-size: 1.1rem; text-align: center; background-color: white; color: #4B3621; cursor: pointer;">
+                <option value="0">0 組</option>
+                <option value="1">1 組</option>
+                <option value="2">2 組</option>
+                <option value="3">3 組</option>
+                <option value="4">4 組</option>
+                <option value="5">5 組</option>
+                <option value="6">6 組</option>
+                <option value="7">7 組</option>
+                <option value="8">8 組</option>
+                <option value="9">9 組</option>
+                <option value="10">10 組</option>
+            </select>
         </div>
+        
         <div class="cart-item">
-            <div class="cart-item-title"><strong>提拉米蘇-加厚版3盒</strong><small>單組 $850</small></div>
-            <input type="number" id="qty_strong" value="0" min="0" onchange="calculateTotal()">
+            <div class="cart-item-title">
+                <strong>提拉米蘇-加厚版3盒</strong>
+                <span style="display: block; font-size: 1.2rem; font-weight: bold; color: #D9534F; margin-top: 6px;">單組 $850</span>
+            </div>
+            <select id="qty_strong" onchange="calculateTotal()" style="width: 85px; padding: 10px; border: 1px solid #E6C7C2; border-radius: 8px; font-size: 1.1rem; text-align: center; background-color: white; color: #4B3621; cursor: pointer;">
+                <option value="0">0 組</option>
+                <option value="1">1 組</option>
+                <option value="2">2 組</option>
+                <option value="3">3 組</option>
+                <option value="4">4 組</option>
+                <option value="5">5 組</option>
+                <option value="6">6 組</option>
+                <option value="7">7 組</option>
+                <option value="8">8 組</option>
+                <option value="9">9 組</option>
+                <option value="10">10 組</option>
+            </select>
         </div>
+
         <div class="cart-item">
-            <div class="cart-item-title"><strong>提拉米蘇-正常版3盒</strong><small>單組 $850</small></div>
-            <input type="number" id="qty_normal" value="0" min="0" onchange="calculateTotal()">
+            <div class="cart-item-title">
+                <strong>提拉米蘇-正常版3盒</strong>
+                <span style="display: block; font-size: 1.2rem; font-weight: bold; color: #D9534F; margin-top: 6px;">單組 $850</span>
+            </div>
+            <select id="qty_normal" onchange="calculateTotal()" style="width: 85px; padding: 10px; border: 1px solid #E6C7C2; border-radius: 8px; font-size: 1.1rem; text-align: center; background-color: white; color: #4B3621; cursor: pointer;">
+                <option value="0">0 組</option>
+                <option value="1">1 組</option>
+                <option value="2">2 組</option>
+                <option value="3">3 組</option>
+                <option value="4">4 組</option>
+                <option value="5">5 組</option>
+                <option value="6">6 組</option>
+                <option value="7">7 組</option>
+                <option value="8">8 組</option>
+                <option value="9">9 組</option>
+                <option value="10">10 組</option>
+            </select>
         </div>
     </div>
 
     <div class="summary">
-        <p><span>商品小計</span><span id="subtotal">$0</span></p>
+        <p><span>商品小計</span><span id="subtotal" style="font-size: 1.1rem; font-weight: bold;">$0</span></p>
         <p><span>冷凍運費</span><span id="shipping_fee">$129</span></p>
         <div class="free-shipping-msg" id="free_shipping_msg"></div>
-        <p class="total-row"><span>總計金額</span><span id="grand_total">$0</span></p>
+        <p class="total-row" style="align-items: center; margin-top: 25px;">
+            <span style="font-size: 1.5rem;">總計金額</span>
+            <span id="grand_total" style="color: #D9534F; font-size: 2.3rem; font-weight: bold;">$0</span>
+        </p>
     </div>
     <button onclick="submitOrder()">確認結帳</button>
 </div>
@@ -70,7 +120,7 @@
     <h2 style="border-bottom: none; font-size: 1.6rem; margin-top: 10px;">🎉 訂單已送出！</h2>
     <div class="highlight-total">
         <p class="label">請匯款以下總金額 💰</p>
-        <p class="amount" id="final_show_total"></p>
+        <p class="amount" id="final_show_total" style="font-size: 3rem; color: #D9534F; font-weight: bold; margin: 10px 0; line-height: 1.2;"></p>
         <p class="order-id-display">專屬訂單編號：<span id="final_order_id" style="color:#D9534F;"></span></p>
     </div>
     <p style="text-align: center; color: #4B3621;">請完成付款後，私訊「訂單編號」與「後五碼」給我們。</p>
