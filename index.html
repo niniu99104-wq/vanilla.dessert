@@ -11,31 +11,32 @@
 <div class="container" id="main_form">
     <div class="hero-section">
         <div class="hero-title">香草籽甜點｜提拉米蘇</div>
+        
         <div class="feature-box">
             <div class="feature-item"><strong>🍪 可可酥菠蘿脆餅：</strong><br>苦甜脆口，拒絕開蓋見泥。</div>
             <div class="feature-item"><strong>🥛 香濃馬斯卡邦：</strong><br>厚實乳香，撐起整盒的重量感。</div>
-            <div class="feature-item"><strong>🥖 阿霓欸手指餅乾：</strong><br>精準吸飽特調液（酒或黑咖啡），濕潤不爛。</div>
+            <div class="feature-item"><strong>🥖 阿霓欸手指餅乾：</strong><br>精準吸飽特調液，濕潤不爛。</div>
         </div>
+
         <div class="flavor-box">
-            <div class="feature-item">☕️ <strong>正常版（有酒）：</strong><br>特調咖啡酒。大人的微醺，適合深夜一人獨佔。</div>
-            <div class="feature-item">☕️ <strong>濃郁版（加厚）：</strong><br>特調咖啡酒。酒控最愛，加厚的療癒感。</div>
-            <div class="feature-item">🍫 <strong>無酒版（純粹）：</strong><br>特調黑咖啡。直球對決的苦甜平衡。</div>
+            <div class="feature-item">☕️ 正常版（有酒） / 濃郁版（加厚） / 🍫 無酒版（純粹）</div>
         </div>
+
         <div class="rule-box">
-            <div>📌<strong>規格：</strong>9 * 9 * 6 cm (1-2 人份)</div>
-            <div>❄️<strong>保存：</strong>冷凍 7 天 / 冷藏 5 天。退冰後立刻吃掉。</div>
-            <div>🚚<strong>物流：</strong>超商冷凍配送（不指定到貨日）</div>
-            <div class="alert-text">⏳訂單爆量，下單後14-21工作天出貨，能等再下單。</div>
-            <div class="insurance-text">保險：富邦產品責任險（0506字第24AML0003140號）</div>
+            <div>❄️<strong>保存：</strong>冷凍 7 天 / 冷藏 5 天。</div>
+            <div>🚚<strong>物流：</strong>7-11 冷凍店到店 (運費 $129，滿 $1500 免運)</div>
+            <div class="alert-text">⏳ 下單後 14-21 工作天出貨。</div>
         </div>
     </div>
 
     <h2>填寫收件資料</h2>
     <label>收件人姓名</label>
     <input type="text" id="cust_name" placeholder="真實姓名，取件需核對證件">
+
     <label>聯絡電話</label>
     <input type="tel" id="cust_phone" placeholder="09開頭，共10碼" maxlength="10">
-    <label>收件門市 (7-11 冷凍店到店)</label>
+
+    <label>收件門市 (7-11)</label>
     <div class="store-input-group">
         <input type="text" id="shipping_store" placeholder="6碼店號或門市名稱">
         <a href="https://emap.pcsc.com.tw/emap.aspx" target="_blank">🔍 查詢門市</a>
@@ -46,73 +47,53 @@
         <div class="cart-item">
             <div class="cart-item-title">
                 <strong>提拉米蘇-無酒精版3盒</strong>
-                <span style="display: block; font-size: 1.2rem; font-weight: bold; color: #D9534F; margin-top: 6px;">單組 $850</span>
+                <span class="unit-price">單組 $850</span>
             </div>
-            <select id="qty_no_alcohol" onchange="calculateTotal()" style="width: 85px; padding: 10px; border: 1px solid #E6C7C2; border-radius: 8px; font-size: 1.1rem; text-align: center; background-color: white; color: #4B3621; cursor: pointer;">
-                <option value="0">0 組</option>
-                <option value="1">1 組</option>
-                <option value="2">2 組</option>
-                <option value="3">3 組</option>
-                <option value="4">4 組</option>
-                <option value="5">5 組</option>
-                <option value="6">6 組</option>
-                <option value="7">7 組</option>
-                <option value="8">8 組</option>
-                <option value="9">9 組</option>
-                <option value="10">10 組</option>
+            <select id="qty_no_alcohol" class="qty-select" onchange="calculateTotal()">
+                <option value="0">0 組</option><option value="1">1 組</option><option value="2">2 組</option>
+                <option value="3">3 組</option><option value="4">4 組</option><option value="5">5 組</option>
+                <option value="6">6 組</option><option value="7">7 組</option><option value="8">8 組</option>
+                <option value="9">9 組</option><option value="10">10 組</option>
             </select>
         </div>
         
         <div class="cart-item">
             <div class="cart-item-title">
                 <strong>提拉米蘇-加厚版3盒</strong>
-                <span style="display: block; font-size: 1.2rem; font-weight: bold; color: #D9534F; margin-top: 6px;">單組 $850</span>
+                <span class="unit-price">單組 $850</span>
             </div>
-            <select id="qty_strong" onchange="calculateTotal()" style="width: 85px; padding: 10px; border: 1px solid #E6C7C2; border-radius: 8px; font-size: 1.1rem; text-align: center; background-color: white; color: #4B3621; cursor: pointer;">
-                <option value="0">0 組</option>
-                <option value="1">1 組</option>
-                <option value="2">2 組</option>
-                <option value="3">3 組</option>
-                <option value="4">4 組</option>
-                <option value="5">5 組</option>
-                <option value="6">6 組</option>
-                <option value="7">7 組</option>
-                <option value="8">8 組</option>
-                <option value="9">9 組</option>
-                <option value="10">10 組</option>
+            <select id="qty_strong" class="qty-select" onchange="calculateTotal()">
+                <option value="0">0 組</option><option value="1">1 組</option><option value="2">2 組</option>
+                <option value="3">3 組</option><option value="4">4 組</option><option value="5">5 組</option>
+                <option value="6">6 組</option><option value="7">7 組</option><option value="8">8 組</option>
+                <option value="9">9 組</option><option value="10">10 組</option>
             </select>
         </div>
 
         <div class="cart-item">
             <div class="cart-item-title">
                 <strong>提拉米蘇-正常版3盒</strong>
-                <span style="display: block; font-size: 1.2rem; font-weight: bold; color: #D9534F; margin-top: 6px;">單組 $850</span>
+                <span class="unit-price">單組 $850</span>
             </div>
-            <select id="qty_normal" onchange="calculateTotal()" style="width: 85px; padding: 10px; border: 1px solid #E6C7C2; border-radius: 8px; font-size: 1.1rem; text-align: center; background-color: white; color: #4B3621; cursor: pointer;">
-                <option value="0">0 組</option>
-                <option value="1">1 組</option>
-                <option value="2">2 組</option>
-                <option value="3">3 組</option>
-                <option value="4">4 組</option>
-                <option value="5">5 組</option>
-                <option value="6">6 組</option>
-                <option value="7">7 組</option>
-                <option value="8">8 組</option>
-                <option value="9">9 組</option>
-                <option value="10">10 組</option>
+            <select id="qty_normal" class="qty-select" onchange="calculateTotal()">
+                <option value="0">0 組</option><option value="1">1 組</option><option value="2">2 組</option>
+                <option value="3">3 組</option><option value="4">4 組</option><option value="5">5 組</option>
+                <option value="6">6 組</option><option value="7">7 組</option><option value="8">8 組</option>
+                <option value="9">9 組</option><option value="10">10 組</option>
             </select>
         </div>
     </div>
 
     <div class="summary">
-        <p><span>商品小計</span><span id="subtotal" style="font-size: 1.1rem; font-weight: bold;">$0</span></p>
+        <p><span>商品小計</span><span id="subtotal" style="font-weight: bold; font-size: 1.1rem;">$0</span></p>
         <p><span>冷凍運費</span><span id="shipping_fee">$129</span></p>
         <div class="free-shipping-msg" id="free_shipping_msg"></div>
-        <p class="total-row" style="align-items: center; margin-top: 25px;">
+        <p class="total-row">
             <span style="font-size: 1.5rem;">總計金額</span>
-            <span id="grand_total" style="color: #D9534F; font-size: 2.3rem; font-weight: bold;">$0</span>
+            <span id="grand_total" class="grand-total-price">$0</span>
         </p>
     </div>
+
     <button onclick="submitOrder()">確認結帳</button>
 </div>
 
@@ -120,17 +101,20 @@
     <h2 style="border-bottom: none; font-size: 1.6rem; margin-top: 10px;">🎉 訂單已送出！</h2>
     <div class="highlight-total">
         <p class="label">請匯款以下總金額 💰</p>
-        <p class="amount" id="final_show_total" style="font-size: 3rem; color: #D9534F; font-weight: bold; margin: 10px 0; line-height: 1.2;"></p>
+        <p id="final_show_total" class="final-huge-price"></p>
         <p class="order-id-display">專屬訂單編號：<span id="final_order_id" style="color:#D9534F;"></span></p>
     </div>
-    <p style="text-align: center; color: #4B3621;">請完成付款後，私訊「訂單編號」與「後五碼」給我們。</p>
+    <p style="text-align: center; color: #4B3621;">請完成付款後，私訊「訂單編號」與「帳號後五碼」給我們。</p>
     <div class="success-box">
-        <p><strong>🏦銀行轉帳：</strong>812 台新 (28881023351575)</p>
+        <p style="color: #7B3F00; font-size: 1.1rem;"><strong>🏦 銀行轉帳</strong></p>
+        <p>銀行代碼：<strong>812 台新銀行</strong></p>
+        <p>帳號：<strong>28881023351575</strong></p>
         <hr style="border: 0; border-top: 1px dashed #E6C7C2; margin: 15px 0;">
-        <p><strong>📱LinePay：</strong><a href="https://line.me/ti/p/taMX75HZDW" target="_blank" style="color:#06C755; text-decoration:none;">點此加好友轉帳</a></p>
+        <p style="color: #7B3F00; font-size: 1.1rem;"><strong>📱 手機好友轉帳</strong></p>
+        <a href="https://line.me/ti/p/taMX75HZDW" target="_blank" class="linepay-btn">點此加好友轉帳 (LinePay / iPass)</a>
     </div>
     <div style="text-align: center; margin-top: 20px;">
-        <a href="https://www.facebook.com/VanillaPatisserie.Tainan" target="_blank" class="fb-btn">💬 私訊香草籽粉絲團</a>
+        <a href="https://www.facebook.com/VanillaPatisserie.Tainan" target="_blank" class="fb-btn">💬 截圖回傳私訊香草籽粉絲頁</a>
     </div>
 </div>
 
