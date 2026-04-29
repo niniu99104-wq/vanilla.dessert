@@ -113,6 +113,7 @@
 
         <div class="flavor-box">
             <div class="feature-item">☕️ <strong>正常版（有酒）：</strong><br>特調咖啡酒。大人的微醺，適合深夜一人獨佔。</div>
+            <div class="feature-item">☕️ <strong>濃郁版（加厚）：</strong><br>特調咖啡酒。酒控最愛，加厚的療癒感。</div> <div class="feature-item">☕️ <strong>正常版（有酒）：</strong><br>特調咖啡酒。大人的微醺，適合深夜一人獨佔。</div>
             <div class="feature-item">🍫 <strong>無酒版（純粹）：</strong><br>特調黑咖啡。直球對決的苦甜平衡。</div>
         </div>
 
@@ -143,14 +144,19 @@
         <div class="cart-item">
             <div class="cart-item-title">
                 <strong>提拉米蘇-無酒精版3盒</strong>
-                <small>單組 $600</small>
+                <small>單組 $850</small>
             </div>
             <input type="number" id="qty_no_alcohol" value="0" min="0" onchange="calculateTotal()">
         </div>
+            <div class="cart-item">
+            <div class="cart-item-title">
+                <strong>提拉米蘇-加厚版3盒</strong>
+                <small>單組 $850</small>
+            </div>
         <div class="cart-item">
             <div class="cart-item-title">
                 <strong>提拉米蘇-正常版3盒</strong>
-                <small>單組 $600</small>
+                <small>單組 $850</small>
             </div>
             <input type="number" id="qty_normal" value="0" min="0" onchange="calculateTotal()">
         </div>
@@ -198,7 +204,7 @@
 
 <script>
     function calculateTotal() {
-        const price = 600;
+        const price = 850;
         const qtyNoAlcohol = parseInt(document.getElementById('qty_no_alcohol').value) || 0;
         const qtyNormal = parseInt(document.getElementById('qty_normal').value) || 0;
         
