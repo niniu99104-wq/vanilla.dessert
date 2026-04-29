@@ -44,3 +44,29 @@ button:disabled { background-color: #C0C0C0; cursor: not-allowed; }
 .success-box { background: #FFFDFB; padding: 25px; border-radius: 10px; border: 1px solid #E6C7C2; margin-top: 20px; text-align: left; }
 .linepay-btn { display: inline-block; background: #06C755; color: white; padding: 12px 20px; text-decoration: none; border-radius: 8px; font-weight: bold; margin-top: 10px; }
 .fb-btn { display: inline-block; background: #7B3F00; color: white; padding: 12px 25px; text-decoration: none; border-radius: 8px; font-weight: bold; margin-top: 10px; }
+
+
+/* --- 圖片樣式設定 --- */
+
+/* 通用設定：防止圖片超出螢幕寬度，並讓邊角變圓滑 */
+img {
+    max-width: 100%;
+    height: auto; /* 保持比例，不會變形 */
+    border-radius: 10px; /* 圓角，看起來比較柔和 */
+}
+
+/* 針對範例 1 的 Logo 設定 */
+.top-logo {
+    width: 120px; /* 限制 Logo 寬度為 120 像素，請依圖片自行調整 */
+    height: auto;
+    border-radius: 0; /* Logo 通常不需要圓角 */
+}
+
+/* 針對範例 2 的主圖設定 */
+.product-main-img {
+    width: 100%; /* 讓圖片寬度撐滿整個框框 */
+    height: 250px; /* 固定高度 */
+    object-fit: cover; /* 關鍵！這行能讓圖片自動裁切填滿高度，而不會被壓扁變形 */
+    margin-bottom: 15px; /* 與下方口味區保持距離 */
+    box-shadow: 0 4px 10px rgba(75,54,33,0.1); /* 加入一點淡淡的陰影，更有質感 */
+}
