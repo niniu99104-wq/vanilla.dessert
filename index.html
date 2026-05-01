@@ -7,7 +7,11 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <img src="2cf6576baff6f75f4d1b7d0b196b407e36dacaaf8d48ecd1355a7191ee636b63.PNG" alt="LOGO">
+    <!-- 幫妳把 LOGO 置中，視覺上會更漂亮 -->
+    <div style="text-align: center; margin-bottom: 20px;">
+        <img src="2cf6576baff6f75f4d1b7d0b196b407e36dacaaf8d48ecd1355a7191ee636b63.PNG" alt="LOGO">
+    </div>
+    
 <div class="container" id="main_form">
     <div class="hero-section">
         <div class="hero-title">香草籽甜點｜提拉米蘇</div>
@@ -20,9 +24,11 @@
 
         <div class="flavor-box">
             <div class="feature-item">☕️ <strong>正常版（有酒）：</strong><br>大人的微醺，適合深夜一人獨佔。</div>
-            <img src="3cj.jpg" alt="正常版（有酒）">
+            <img src="3cj.jpg" alt="正常版（有酒）" style="margin-bottom: 15px;">
+            
             <div class="feature-item">☕️ <strong>濃郁版（加厚）：</strong><br>酒控最愛，加厚的療癒感。</div>
-            <img src="2mj.jpg" alt="濃郁版（加厚）">
+            <img src="2mj.jpg" alt="濃郁版（加厚）" style="margin-bottom: 15px;">
+            
             <div class="feature-item">🍫 <strong>無酒版（純粹）：</strong><br>直球對決的苦甜平衡。</div>
             <img src="1noj.jpg" alt="無酒版（純粹）">
         </div>
@@ -42,6 +48,11 @@
 
     <label>聯絡電話</label>
     <input type="tel" id="cust_phone" placeholder="09開頭，共10碼" maxlength="10">
+
+    <!-- 👇 這是為妳加回來的 IG 社群名稱欄位 👇 -->
+    <label>IG 帳號 / 社群名稱</label>
+    <input type="text" id="cust_social" placeholder="請填寫您的 IG 或社群名稱，方便核對">
+    <!-- 👆 新增結束 👆 -->
 
     <label>收件門市 (7-11 冷凍店到店)</label>
     <div class="store-input-group">
