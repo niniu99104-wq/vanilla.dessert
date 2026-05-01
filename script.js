@@ -56,7 +56,7 @@ function submitOrder() {
     btn.disabled = true;
 
     // ★★★ 請把下方引號內的文字換成您的最新 GAS 部署網址 ★★★
-    const scriptURL = '請貼上您的GAS網址';
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzi5wAsA99oqHMUVtPEVEdB8SWZG6mhBJO3trHbqocb4t-y1a74VnJU9Wjp42O4k5qM/exec';
 
     fetch(scriptURL, {
         method: 'POST',
