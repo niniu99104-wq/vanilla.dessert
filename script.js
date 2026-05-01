@@ -8,7 +8,7 @@ function calculateTotal() {
     document.getElementById('subtotal').innerText = `$${subtotal}`;
 
     let ship = (subtotal === 0) ? 0 : (subtotal >= 1500 ? 0 : 129);
-    let msg = (subtotal >= 1500) ? '🎉 已享免運優惠！' : (subtotal > 0 ? `再買 $${1500 - subtotal} 享免運。` : '');
+    let msg = (subtotal >= 1500) ? '🎉 已達 $1500 門檻，享免運優惠！' : (subtotal > 0 ? `再買 $${1500 - subtotal} 即可享冷凍免運。` : '');
 
     document.getElementById('shipping_fee').innerText = `$${ship}`;
     document.getElementById('free_shipping_msg').innerText = msg;
@@ -18,13 +18,14 @@ function calculateTotal() {
 function submitOrder() {
     const name = document.getElementById('cust_name').value.trim();
     const phone = document.getElementById('cust_phone').value.trim();
+    const social = document.getElementById('cust_social').value.trim(); // 抓取 IG / 社群帳號
     const store = document.getElementById('shipping_store').value.trim();
     const q1 = parseInt(document.getElementById('qty_no_alcohol').value) || 0;
     const q2 = parseInt(document.getElementById('qty_strong').value) || 0;
     const q3 = parseInt(document.getElementById('qty_normal').value) || 0;
 
     if (q1 + q2 + q3 === 0) { alert('購物車是空的，請至少選擇一組喔！'); return; }
-    if (!name || !phone || !store) { alert('請填寫完整收件資料！'); return; }
+    if (!name || !phone || !social || !store) { alert('請填寫完整收件資料與社群名稱！'); return; }
     if (!/^09\d{8}$/.test(phone)) { alert('手機格式不正確！必須是 09 開頭 10 碼數字。'); return; }
 
     const total = document.getElementById('grand_total').innerText;
@@ -37,9 +38,17 @@ function submitOrder() {
     const randomStr = Math.floor(1000 + Math.random() * 9000);
     const orderId = 'VD' + yy + mm + dd + randomStr;
 
+    // 將資料打包 (包含新加入的 social)
     const orderData = {
-        order_id: orderId, name: name, phone: phone, store: store,
-        qty_no_alcohol: q1, qty_strong: q2, qty_normal: q3, total: total
+        order_id: orderId, 
+        name: name, 
+        phone: phone, 
+        social: social, 
+        store: store,
+        qty_no_alcohol: q1, 
+        qty_strong: q2, 
+        qty_normal: q3, 
+        total: total
     };
 
     const btn = document.querySelector('button');
@@ -47,7 +56,7 @@ function submitOrder() {
     btn.disabled = true;
 
     // ★★★ 請把下方引號內的文字換成您的最新 GAS 部署網址 ★★★
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbwiReVR0JxplFwGvWjXdhhF-pGTMmbRykHBMEVgxnrkPeK_IiTnOj8aTvodF8DANx7D/exec';
+    const scriptURL = '請貼上您的GAS網址';
 
     fetch(scriptURL, {
         method: 'POST',
